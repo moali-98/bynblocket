@@ -4,7 +4,7 @@ import { Card, Input } from 'semantic-ui-react'
 export default function Posts() {
     const [APIData, setAPIData] = useState([])
     useEffect(() => {
-        axios.get(`http://localhost:4000/api/products`)
+        axios.get(`http://localhost:3000/api/products`)
             .then((response) => {
                 setAPIData(response.data);
             })
@@ -21,9 +21,9 @@ export default function Posts() {
                         <Card>
                             <Card.Content>
                                 <Card.Header>{product.name}</Card.Header>
-                            
-                                  
-                                
+
+
+
                             </Card.Content>
                         </Card>
                     )
