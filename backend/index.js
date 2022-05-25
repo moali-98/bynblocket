@@ -3,6 +3,7 @@ const express = require('express');
 const restApi = require('./rest-api');
 const path = require('path');
 
+
 const port = 4000;
 const dbPath = '../database/db.sqlite3';
 

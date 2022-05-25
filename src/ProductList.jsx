@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { scrollRestore } from './utilities/scrollBehavior';
 import CategorySelect from './CategorySelect';
 import { sweFormat } from './utilities/currencyFormatter';
+import Search from './Search';
 // import { missingImage } from './utilities/handleMissingImage';
 
 export default function ProductList() {
@@ -19,12 +20,14 @@ export default function ProductList() {
 
   return <Container className="productList">
     <Row><Col><h1>Products</h1></Col></Row>
+    <Search /> 
     <Row className="mb-3"><Col><CategorySelect showAllOption bindTo={[s, 'chosenCategoryId']} /></Col></Row>
     {s.products.filter(product =>
       s.chosenCategoryId == 0 /*all*/
       || +s.chosenCategoryId === product.categoryId
     ).map(({ id, name, description, price }) =>
       <Row className="product" key={id} onClick={() => showDetail(id)}>
+    
         <Card>
           <Col xxl="12">
             <h3>{name}</h3>
