@@ -4,7 +4,7 @@ class LiveSearchFilter extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      Profile: [],
+      Product: [],
     }
     this.cancelToken = ''
     this.getVal = this.getVal.bind(this)
@@ -35,7 +35,7 @@ class LiveSearchFilter extends Component {
       })
       .then((res) => {
         this.setState({
-          Profile: res.data,
+          Product: res.data,
         })
       })
       .catch((e) => {
@@ -48,7 +48,7 @@ class LiveSearchFilter extends Component {
       return item.username.toLowerCase().indexOf(stringKwd) !== -1
     })
     this.setState({
-      Profile: filterData,
+      Product: filterData,
     })
   }
   render() {
@@ -66,13 +66,13 @@ class LiveSearchFilter extends Component {
           />
         </div>
         <div className="list-group">
-          {this.state.Profile.map((products) => {
+          {this.state.Product.map((item) => {
             return (
               <a
                 className="list-group-item list-group-item-action"
-                key={products.id}
+                key={item.id}
               >
-                {products.name}
+                {item.name}
               </a>
             )
           })}
